@@ -19,8 +19,8 @@ from django.conf.urls import url
 from django.views.generic import RedirectView
 
 urlpatterns = [
-    url(r'^', include('main.urls')),
-    url(r'^bot/', include('bot.urls')),
-    url(r'^admin/', admin.site.urls),
+    url(r'', include('main.urls')),
+    url(r'bot/', include('bot.urls')),
+    url(r'admin/', admin.site.urls),
 ]
 

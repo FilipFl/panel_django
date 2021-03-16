@@ -6,4 +6,4 @@ from datetime import datetime
 
 # Create your views here.
 def bot_view(request):
-    return render(request, 'basic.html')
+    return render(request, 'about_me.html')
