@@ -6,8 +6,4 @@ from datetime import datetime
 
 # Create your views here.
 def bot_view(request):
-    return render(request, 'bot/basic.html',
-                  {
-                      'days': '30',
-                      'date': timezone.now().date,
-                  })
+    return render(request, 'basic.html')
