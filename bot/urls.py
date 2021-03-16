@@ -1,6 +1,6 @@
-from django.urls import path
+from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    path('', views.bot_view)
+    url(r'', views.bot_view)
 ]

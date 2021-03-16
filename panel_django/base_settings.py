@@ -26,7 +26,7 @@ SECRET_KEY = 'secret_key'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['eragorn.pythonanywhere.com']
+ALLOWED_HOSTS = ['eragorn.pythonanywhere.com', 'localhost']
 
 
 # Application definition
