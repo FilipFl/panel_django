@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<style>
+  body {
+
+    background-color: black;
+  }
+  .pulsate {
+    -webkit-animation: pulsate 2s ease-out;
+    -webkit-animation-iteration-count: infinite;
+    opacity: 1;
+}
+@-webkit-keyframes pulsate {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1.0;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+p {
+  color: green;
+  font-size: 150px;
+  text-align: center;
+ }
+ a {
+     text-decoration: none;
+     color: initial;
+ }
+
+
+</style>
+<body>
+
+  <p id="counter" class="pulsate center"></p>
+
+
+</body>
+</html>
+<script>
+var countDownDate = new Date("Aug 20, 2021 22:00:00").getTime();
+
+var x = setInterval(function() {
+
+  var now = new Date().getTime();
+
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="demo"
+  document.getElementById("counter").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+  // If the count down is finished, write some text
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("counter").innerHTML = '<a href="https://eragorn.pythonanywhere.com/prezent_dla_rudego_ready"><p class="pulsate center">Proceed...</p></a>';
+  }
+}, 1000);
+</script>

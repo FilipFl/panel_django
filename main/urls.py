@@ -5,4 +5,5 @@ urlpatterns = [
     path('', views.basic_view),
     path('prezent_dla_rudego', views.prezent_view),
     path('time_now', views.time_now),
+    path('prezent_dla_rudego_ready', views.ready_view),
 ]
