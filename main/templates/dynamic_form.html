@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Find sum parts</title>
+</head>
+<body>
+<form id="interest-list-new" method="post" enctype="multipart/form-data" action="{% url "find_parts" %}">
+<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+        Sum to check:
+        {{form.sum_to_check}}</br></br>
+        Parts:</br>
+        {% for x in form.get_interest_fields %}
+            {{ x }}</br>
+        {% endfor %}
+        <button type="submit" id="submit" name="submit">Upload</button>
+</form>
+</body>
+</html>
+
+<script>
+$('.interest-list-new').on('input', function() {
+    let $this = $(this)
+    let $clone = $this.clone()
+let name = $clone.attr('name')
+    let n = parseInt(name.split('_')[2]) + 1
+    name = 'part_form_' + n
+    $clone.val('')
+    $clone.attr('name', name)
+    $clone.appendTo($this.parent())
+    $this.removeClass('interest-list-new')
+    $this.off('input', arguments.callee)
+    $clone.on('input', arguments.callee)
+})
+</script>

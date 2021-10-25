@@ -1,6 +1,6 @@
 import datetime
 import itertools
-
+from main.forms import MyForm
 
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
@@ -59,3 +59,17 @@ def find_sum_parts(request):
     for tup in result:
         result_dict['possibilities'].append([number for number in tup])
     return JsonResponse(result_dict, status=200)
+
+
+def find_sum_parts_form(request):
+    if request.method == 'POST':
+        form = MyForm(request.POST)
+        form.is_valid()
+        values, sum_to_check = form.get_data()
+        result = set([tuple(sorted(seq)) for i in range(len(values), 0, -1) for seq in itertools.combinations(values, i) if
+                  sum(seq) == sum_to_check])
+        return render(request, "result.html", {'results': result})
+
+    else:
+        form = MyForm()
+    return render(request, "dynamic_form.html", {'form': form})
